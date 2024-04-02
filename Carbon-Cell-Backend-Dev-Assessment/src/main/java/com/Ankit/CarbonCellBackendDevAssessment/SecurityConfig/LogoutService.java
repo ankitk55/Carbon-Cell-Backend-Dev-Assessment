@@ -37,6 +37,7 @@ public class LogoutService implements LogoutHandler {
             tok.setTokenExpired(true);
             tokenManagementRepo.save(tok);
             try {
+                response.setContentType("text/plain");
                 response.getWriter().write(" Message :You have successfully  logout");
             } catch (IOException e) {
                 throw new RuntimeException(e);

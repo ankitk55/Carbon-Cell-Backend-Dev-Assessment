@@ -77,7 +77,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
            if(isTokenExpired(token)){
                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                response.setContentType("text/plain");
-               response.getWriter().write("Error Message :  JWT token Expired.. , Please check..");
+               response.getWriter().write("Error Message :  JWT token Expired..  Please login Again..");
                return;
            }
 

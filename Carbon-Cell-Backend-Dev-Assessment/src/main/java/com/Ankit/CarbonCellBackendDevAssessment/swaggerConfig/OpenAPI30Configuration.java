@@ -9,7 +9,8 @@ import org.springframework.context.annotation.Configuration;
         name = "Bearer Authentication",
         type = SecuritySchemeType.HTTP,
         bearerFormat = "JWT",
-        scheme = "bearer"
+        scheme = "bearer",
+        description = "Put JWT-token value only without adding-'Bearer'"
 )
 public class OpenAPI30Configuration {
 }
