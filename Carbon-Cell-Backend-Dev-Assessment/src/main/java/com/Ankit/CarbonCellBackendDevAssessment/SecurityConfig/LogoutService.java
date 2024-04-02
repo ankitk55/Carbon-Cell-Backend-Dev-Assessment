@@ -24,6 +24,7 @@ public class LogoutService implements LogoutHandler {
         if(authHeader==null || !authHeader.startsWith("Bearer ")){
             response.setStatus(HttpServletResponse.SC_OK);
             try {
+                response.setContentType("text/plain");
                 response.getWriter().write(" Message : Missing Auth Header , provide auth header to logout");
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -45,6 +46,7 @@ public class LogoutService implements LogoutHandler {
         }else{
             response.setStatus(HttpServletResponse.SC_OK);
             try {
+                response.setContentType("text/plain");
                 response.getWriter().write(" Message :Invalid Token , provide Valid Token to successfull logout");
             } catch (IOException e) {
                 throw new RuntimeException(e);

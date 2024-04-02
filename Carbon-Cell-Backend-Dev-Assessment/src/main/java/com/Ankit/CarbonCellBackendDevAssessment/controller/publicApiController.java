@@ -154,9 +154,7 @@ public class publicApiController {
                 }
             }
 
-//            if(ans.size()==0){
-//                return ResponseEntity.status(404).body(ApiResponse.builder().entriesCount(0).message("No entry found for category : "+category).build());
-//            }
+
             if(jsonArray.length()<count){
                 return ResponseEntity.ok( ApiResponse.builder().message("Your Api has only - "+jsonArray.length()+" results").entries(ans).entriesCount(ans.size()).build()) ;
             }

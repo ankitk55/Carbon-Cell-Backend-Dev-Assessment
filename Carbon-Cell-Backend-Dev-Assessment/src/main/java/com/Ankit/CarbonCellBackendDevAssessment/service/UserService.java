@@ -21,11 +21,15 @@ public class UserService {
     public ResponseEntity<String> addUser(User user) {
         String userName =user.getUserName();
         String role =user.getRole();
+        String password=user.getPassword();
         if(userName==null){
             throw new NullFieldException("User Name can't be null ");
         }
         if(role ==null){
             throw new NullFieldException("User Role  can't be null ");
+        }
+        if(password==null){
+            throw new NullFieldException("User password  can't be null ");
         }
         User user1 =userRepo.findByUserName(userName);
         if(user1 !=null){
