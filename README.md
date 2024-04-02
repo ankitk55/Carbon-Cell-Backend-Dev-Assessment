@@ -293,10 +293,27 @@ Response Body :
 | `401`   |`UnAuthenticated User`   | `Try to Access a Resource without login ` |
 | `403`   |`UnAuthorize Access`   | `Try to access a Resource which is not accessible from your Account` |
 
+## In case of Request Failure Http Status and Error Message
+| Http Response Code     | Error Message                |
+| :-------- | :------------------------- |
+| `401`    | `Message: Invalid UserName or password , Try again..` |
+| `403`    | `Error message : You does not have permission to access this resource` |
+| `409`    | `Message: "User Already exists with user Name : XXXX"` |
+| `401`    | `"Error Message : Invalid JWT token , Please check.."` |
+| `401`    | `"Error Message : Missing Authorization Header...."` |
+| `401`    | `"Error Message :  JWT token Expired..  Please login Again.."` |
+| `400`    | `Message: "User password  can't be null ""` |
+| `400`    | `Message: "User's user-name  can't be null ""` |
+| `400`    | `Message: "User's Role   can't be null ""` |
+| `500`    | `Error occurred while processing the request.(This Error can occurs when reterive the data from public API)` |
+
+* All Exceptions and Edge cases are handled effeciently .
+* Showing proper Error message and HTTP Status code for Users better understanding.
+
 
 ## Documentations :
 * For Testing Apis  you can use **Postman** [Documentation](https://documenter.getpostman.com/view/27811473/2sA35HZ2Rd).
-* For better understanding of Endpoints you can use **Swagger** [Documentation](http://localhost:8080/swagger-ui/index.html#/)
+* For better understanding of Endpoints and also you can tests All Endpoints with  **Swagger-UI** [Documentation](http://localhost:8080/swagger-ui/index.html#/)
 ### Author
  👨‍💼 **Ankit Kumar**
  + Github : [Ankit kumar](https://github.com/ankitk55?tab=repositories)
