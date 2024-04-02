@@ -49,13 +49,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
            String username = null;
            if (authHeader == null) {
                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-               response.setContentType("application/json");
+               response.setContentType("text/plain");
                response.getWriter().write("Error Message : Missing Authorization Header....");
                return;
 
            }
            if (!authHeader.startsWith("Bearer ")) {
                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+               response.setContentType("text/plain");
                response.getWriter().write("Error Message : Invalid JWT token , Please check..");
                return;
 
@@ -68,12 +69,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                username = jwtService.extractUsername(token);
            } catch (Exception ex) {
                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+               response.setContentType("text/plain");
                response.getWriter().write("Error Message : Invalid JWT token , Please check..");
                return;
 
            }
            if(isTokenExpired(token)){
                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+               response.setContentType("text/plain");
                response.getWriter().write("Error Message :  JWT token Expired.. , Please check..");
                return;
            }

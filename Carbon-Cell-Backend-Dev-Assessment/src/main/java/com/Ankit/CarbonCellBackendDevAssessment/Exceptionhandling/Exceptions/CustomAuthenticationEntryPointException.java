@@ -12,7 +12,7 @@ public class CustomAuthenticationEntryPointException implements AuthenticationEn
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-
+        response.setContentType("text/plain");
         response.getWriter().write("Error message : You does not have permission to access this resource");
     }
 }

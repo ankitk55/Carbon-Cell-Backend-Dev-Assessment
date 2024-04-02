@@ -1,6 +1,7 @@
 package com.Ankit.CarbonCellBackendDevAssessment.controller;
 
 import com.Ankit.CarbonCellBackendDevAssessment.publicApiResponse.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,6 +25,7 @@ public class publicApiController {
     private static final String API_URL = "https://api.publicapis.org/entries";
 
     @GetMapping("/filterByCategory")
+    @SecurityRequirement(name = "Bearer Authentication")
     public ResponseEntity<ApiResponse>  filterByCategory(@RequestParam String category) {
         try {
             // Retrieve data from the API
@@ -89,6 +91,7 @@ public class publicApiController {
     }
 
     @GetMapping("filterByCount/{ccount}")
+    @SecurityRequirement(name = "Bearer Authentication")
     public ResponseEntity<ApiResponse>  filterByCount(@PathVariable String ccount) {
 
         if(!StringUtils.isNumeric(ccount)){
